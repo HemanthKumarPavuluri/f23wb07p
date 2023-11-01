@@ -23,6 +23,13 @@ block content
   div(class= "container-fluid")
     div(class = "row")
       each item,index in results
-        div(class= "col-sm-2") games: #{item.game_name}
-        div(class= "col-sm-2") playerCount: #{item.player_count}
-        div(class= "col-sm-2") ticketPrice: #{item.ticket_price}
+        div(class= "col-sm-2", onclick=`buy(${index})`) games: #{item.game_name}
+        div(class= "col-sm-2", onclick=`buy(${index})`) playerCount: #{item.player_count}
+        div(class= "col-sm-2", onclick=`buy(${index})`) ticketPrice: #{item.ticket_price}
+         br
+        br
+        
+  script.
+    function buy(itemNum){
+      alert(`You purchased item ${itemNum+1}`)
+    }
